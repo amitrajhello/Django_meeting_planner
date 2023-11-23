@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,8 +6,9 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Welcome</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='static/website/style.css'> -->
+    <link rel='stylesheet' type='text/css' media='screen' href="{% static 'website/style.css' %}">
+
 </head>
 <body>
     <h1>Welcome to the meeting planner!</h1>
@@ -19,12 +21,12 @@
     <ul>
         {% for meeting in meetings %}
             <li>
-                <a href="/meetings/{{meeting.id}}">
+                <a href="{% url 'detail' meeting.id %}">
                     {{ meeting.title }}
                 </a>
             </li>
         {% endfor %} 
     </ul>
-    
+    <a href="{% url 'rooms' %}">Rooms List</a>
 </body>
 </html>
