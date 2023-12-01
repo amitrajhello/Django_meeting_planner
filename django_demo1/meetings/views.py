@@ -22,3 +22,5 @@ def new(request):
     else:
         form = MeetingForm()
     return render(request, "meetings/new.html", {"form": form})
+
+#test
